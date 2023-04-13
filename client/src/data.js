@@ -34,16 +34,19 @@ export const categories = [
        id: 1,
        img: "https://img.freepik.com/free-photo/upset-woman-with-dark-hair-standing-light-wall_197531-6471.jpg?w=1480&t=st=1679513173~exp=1679513773~hmac=df37411ec5df64836a38b3c0a944d1792ae8a82880b80b759e82e8b2a49b9e1b",
        title: "SHIRT STYLE!",
+       cat:"coat",
     },
     {
        id: 2,
        img: "https://www.thehomeworker.com/wp-content/uploads/2022/02/DSCF0737.jpg",
        title: "LOUNGEWEAR LOVE",
+       cat:"women",
     },
     {
        id: 3,
        img: "https://img.freepik.com/free-photo/stylish-woman-leather-coat-black-hat-demonstrate-winter-fashion-trends-white_273443-4937.jpg?w=1480&t=st=1679512953~exp=1679513553~hmac=ce29ab4452f13546396965dce1191c6edb03250040492cf880be7fc283fc1465",
        title: "JACKETS",
+       cat:"man",
     },
     ];
   
