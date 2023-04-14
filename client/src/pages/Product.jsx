@@ -7,6 +7,7 @@ import Newsletter from "../components/Newsletter";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
+import axios from "axios";
 
 
 const Container = styled.div``;
@@ -120,10 +121,12 @@ font-weight: bolder;
 const Product = () => {
     const location = useLocation()
     const id=location.pathname.split("/")[2]
+    console.log(`id ${id}`)
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
 
     useEffect(()=>{
+        console.log(`id ${id}`)
         const getProduct = async () => {
             try {
                 const res = await publicRequest.get("/products/find/"+id)
@@ -133,7 +136,7 @@ const Product = () => {
             }
         };
         getProduct()
-    },[id])
+    },[id]);
 
 
   return (
@@ -153,16 +156,16 @@ const Product = () => {
                 <FilterContainer>
                     <Filter>
                         <FilterTitle>Color</FilterTitle>
-                        {product.color.map((color)=>{
-                            return <FilterColor color={color.toLowerCase()} key={color} />
-                        })}
+                        {product.color?.map((c)=>(
+                            <FilterColor color={c.toLowerCase()} key={c} />
+                        ))}
                     </Filter>
                     <Filter>
                         <FilterTitle>Size</FilterTitle>
                         <FilterSize>
-                            {product.size.map((size)=>{
-                                return <FilterSizeOption key={size}>{size}</FilterSizeOption>
-                            })}
+                            {product.size?.map((z)=>(
+                                <FilterSizeOption key={z}>{z}</FilterSizeOption>
+                            ))}
                         </FilterSize>
                     </Filter>
                 </FilterContainer>
