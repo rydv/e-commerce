@@ -44,10 +44,17 @@ const ProductList = () => {
     const handleFilters = (e) => {
         
         const value = e.target.value;
-        setFilters({
-            ...filters,
-            [e.target.name]: value
-        })
+
+        if(value==="ALL"){
+            const updatedFilter = delete filters[e.target.name]
+            setFilters(updatedFilter)
+        } else{
+
+            setFilters({
+                ...filters,
+                [e.target.name]: value
+            })
+        }
         
     }
 
