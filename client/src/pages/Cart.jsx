@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Add, Remove } from "@material-ui/icons";
+import { useSelector } from "react-redux";
 
 const Container = styled.div``;
 
@@ -152,6 +153,8 @@ color: white;
 
 
 const Cart = () => {
+  const cart = useSelector(state=>state.cart)
+
   return (
     <Container>
         <Navbar />
@@ -168,51 +171,33 @@ const Cart = () => {
             </Top>
             <Bottom>
                 <Info>
-                    <Product>
+                    {cart.products.map(product=>(<Product>
                         <ProductDetail>
-                            <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A"/>
+                            <Image src={product.img}/>
                             <Details>
-                                <ProductName><b>Product:</b> NYKEE RUNNING SHOES</ProductName>
-                                <ProductId><b>ID:</b> 77654387589</ProductId>
-                                <ProductColor color="black"/>
-                                <ProductSize><b>Size:</b> 8US</ProductSize>
+                                <ProductName><b>Product:</b> {product.title}</ProductName>
+                                <ProductId><b>ID:</b> {product._id}</ProductId>
+                                <ProductColor color={product.color}/>
+                                <ProductSize><b>Size:</b> {product.size}</ProductSize>
                             </Details>
                         </ProductDetail>
                         <PriceDetail>
                             <ProductAmountContainer>
                                 <Add />
-                                <ProductAmount>2</ProductAmount>
+                                <ProductAmount>{product.quantity}</ProductAmount>
                                 <Remove />
                             </ProductAmountContainer>
-                            <ProductPrice>₹ 3799</ProductPrice>
+                            <ProductPrice>₹ {product.price*product.quantity}</ProductPrice>
                         </PriceDetail>
                     </Product>
+                    ))}
                     <Hr />
-                    <Product>
-                        <ProductDetail>
-                            <Image src="https://cdn.shopify.com/s/files/1/0623/8850/2700/products/WM0040_700x.png?v=1654782484"/>
-                            <Details>
-                                <ProductName><b>Product:</b> TimeLapse t-shirt</ProductName>
-                                <ProductId><b>ID:</b> 5685749996</ProductId>
-                                <ProductColor color="lightblue"/>
-                                <ProductSize><b>Size:</b> M</ProductSize>
-                            </Details>
-                        </ProductDetail>
-                        <PriceDetail>
-                            <ProductAmountContainer>
-                                <Add />
-                                <ProductAmount>1</ProductAmount>
-                                <Remove />
-                            </ProductAmountContainer>
-                            <ProductPrice>₹ 699</ProductPrice>
-                        </PriceDetail>
-                    </Product>
                 </Info>
                 <Summary>
                     <SummaryTitle>ORDER SUMMARY</SummaryTitle>
                 <SummaryItem>
                     <SummaryItemText>Subtotal</SummaryItemText>
-                    <SummaryItemPrice>₹ 4498</SummaryItemPrice>
+                    <SummaryItemPrice>₹ {cart.total}</SummaryItemPrice>
                 </SummaryItem>
                 <SummaryItem>
                     <SummaryItemText>Estimated Shipping</SummaryItemText>
@@ -224,7 +209,7 @@ const Cart = () => {
                 </SummaryItem>
                 <SummaryItem type="total">
                     <SummaryItemText >Subtotal</SummaryItemText>
-                    <SummaryItemPrice>₹ 4498</SummaryItemPrice>
+                    <SummaryItemPrice>₹ {cart.total}</SummaryItemPrice>
                 </SummaryItem>
                 <SummaryButton>CHECKOUT NOW</SummaryButton>
                 </Summary>
