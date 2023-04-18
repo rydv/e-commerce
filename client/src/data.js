@@ -1,31 +1,31 @@
 export const sliderItems =[
+    // {
+    //     id: 1,
+    //     img: "https://img.freepik.com/free-photo/portrait-young-beautiful-brunette-woman-girl-model-with-nude-makeup-colorful-summer-pink-hipster-clothes-posing-near-wall-looking-happily_158538-8831.jpg?w=1480&t=st=1679508804~exp=1679509404~hmac=a9db430cc1ba409d421217f9d58d5b2b3e2c65b877c9f7d9cdf376c2eceeff3e",
+    //     title: "SUMMER SALE",
+    //     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    //     bg: "f5fafd",
+    // },
+    // {
+    //     id: 2,
+    //     img: "https://img.freepik.com/free-photo/brunette-lady-black-sportswear-tired-after-long-training-with-white-towel_231208-3439.jpg?w=900&t=st=1679508895~exp=1679509495~hmac=3184e14a5cf5b9fff96c68e6cc9414d6407095423efc3113e9adb2418ef9f9f4",
+    //     title: "GYM SALE",
+    //     desc: "KEEP YOUR HEAD HIGH, YOUR GLUTES TIGHT & YOUR COFFEE STRONG.",
+    //     bg: "fcf1ed",
+    // },
     {
-        id: 1,
-        img: "https://img.freepik.com/free-photo/portrait-young-beautiful-brunette-woman-girl-model-with-nude-makeup-colorful-summer-pink-hipster-clothes-posing-near-wall-looking-happily_158538-8831.jpg?w=1480&t=st=1679508804~exp=1679509404~hmac=a9db430cc1ba409d421217f9d58d5b2b3e2c65b877c9f7d9cdf376c2eceeff3e",
-        title: "SUMMER SALE",
-        desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-        bg: "f5fafd",
-    },
-    {
-        id: 2,
-        img: "https://img.freepik.com/free-photo/brunette-lady-black-sportswear-tired-after-long-training-with-white-towel_231208-3439.jpg?w=900&t=st=1679508895~exp=1679509495~hmac=3184e14a5cf5b9fff96c68e6cc9414d6407095423efc3113e9adb2418ef9f9f4",
-        title: "GYM SALE",
-        desc: "KEEP YOUR HEAD HIGH, YOUR GLUTES TIGHT & YOUR COFFEE STRONG.",
-        bg: "fcf1ed",
-    },
-    {
-      id: 3,
-      img: "https://i.ibb.co/DG69bQ4/2.png",
-      title: "AUTUMN COLLECTION",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fcf1ed",
-    },
-    {
-      id: 3,
+      id: 1,
       img: "https://i.ibb.co/cXFnLLV/3.png",
       title: "LOUNGEWEAR LOVE",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
       bg: "fbf0f4",
+    },
+    {
+      id: 2,
+      img: "https://i.ibb.co/DG69bQ4/2.png",
+      title: "AUTUMN COLLECTION",
+      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      bg: "fcf1ed",
     },
 ];
 

@@ -4,6 +4,12 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Add, Remove } from "@material-ui/icons";
 import { useSelector } from "react-redux";
+import StripeCheckout from "react-stripe-checkout";
+import { useEffect, useState } from "react";
+import {useNavigate} from 'react-router-dom';
+import { userRequest } from "../requestMethods";
+
+const KEY = process.env.REACT_APP_STRIPE;
 
 const Container = styled.div``;
 
@@ -153,7 +159,29 @@ color: white;
 
 
 const Cart = () => {
-  const cart = useSelector(state=>state.cart)
+  const cart = useSelector(state=>state.cart);
+  const [stripeToken, setStripeToken] = useState(null)
+  const history = useNavigate()
+
+  const onToken = (token) => {
+    setStripeToken(token)
+  }
+
+  useEffect(()=>{
+    const makeRequest = async () => {
+        try {
+            const res = await userRequest.post("/checkout/payment",{
+                tokenId: stripeToken.id,
+                amount: cart.total*100/82,
+            });
+            history.push("/success",{data:res.data})
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    stripeToken && cart.total>=1 && makeRequest();
+    console.log(stripeToken)
+  },[stripeToken,cart.total,history])
 
   return (
     <Container>
@@ -211,7 +239,18 @@ const Cart = () => {
                     <SummaryItemText >Subtotal</SummaryItemText>
                     <SummaryItemPrice>₹ {cart.total}</SummaryItemPrice>
                 </SummaryItem>
+                <StripeCheckout
+                name="Just bAIy"
+                image="https://cdn1.iconfinder.com/data/icons/professionals-filled-line/614/1575_-_Cashier-1024.png"
+                billingAddress
+                shippingAddress
+                description={`Your total is ₹${cart.total}`}
+                amount={cart.total*100/82}
+                token={onToken}
+                stripeKey={KEY}
+                >
                 <SummaryButton>CHECKOUT NOW</SummaryButton>
+                </StripeCheckout>
                 </Summary>
             </Bottom>
         </Wrapper>
