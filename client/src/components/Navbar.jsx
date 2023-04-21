@@ -58,6 +58,7 @@ const MenuItem = styled.div`
 `
 
 const Navbar = () => {
+    console.log(useSelector(state=>state))
     const quantity = useSelector(state=>state.cart.quantity)
     // const cart = useSelector(state=>state.cart)
     // console.log(cart)
