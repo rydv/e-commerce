@@ -123,7 +123,6 @@ font-weight: bolder;
 const Product = () => {
     const location = useLocation()
     const id=location.pathname.split("/")[2]
-    console.log(`id ${id}`)
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const [color, setColor] = useState("");
@@ -131,7 +130,6 @@ const Product = () => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        console.log(`id ${id}`)
         const getProduct = async () => {
             try {
                 const res = await publicRequest.get("/products/find/"+id)

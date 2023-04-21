@@ -180,7 +180,6 @@ const Cart = () => {
         }
     }
     stripeToken && cart.total>=1 && makeRequest();
-    console.log(stripeToken)
   },[stripeToken,cart.total,history])
 
   return (
